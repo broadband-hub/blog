@@ -1,0 +1,14 @@
+<a [routerLink]="post.id">
+    <div class="blog-post-card">
+        <img class="blog-post-card-image"
+            src="https://assets-global.website-files.com/5f2a93fe880654a977c51043/63b587b4b1f3a80f91f0dbed_image11.png">
+        <div class="blog-post-card-content">
+            <div class="blog-post-card-time">
+                <div class="date secondary-label">{{ post.published_at |
+                    date:'MM.dd.yy' }}</div>
+            </div>
+            <div class="blog-post-card-title label">{{ post.title }}</div>
+            <div class="blog-post-card-description secondary-label">{{ post.description }}</div>
+        </div>
+    </div>
+</a>

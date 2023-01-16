@@ -1,1 +1,16 @@
-<p>blog works!</p>
+<div class="p-8">
+
+    <!-- Featured post -->
+    <div id="featured-blog-post" class="overflow-hidden rounded-4xl mb-24" style="max-height:calc(100vh - 7.5rem)">
+        <img src="https://assets-global.website-files.com/5f2a93fe880654a977c51043/63b587b4b1f3a80f91f0dbed_image11.png">
+    </div>
+
+    <!-- Recent posts -->
+    <div id="recent-blog-posts">
+        <div class="text-2xl text-gray-50 mb-8">Recent blog posts</div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+            <app-blog-post-card *ngFor="let post of blog_posts" [post]="post"></app-blog-post-card>
+        </div>
+    </div>
+</div>

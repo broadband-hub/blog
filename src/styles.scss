@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+
+  .label {
+    @apply text-gray-100;
+  }
+
+  .secondary-label {
+    @apply text-gray-400;
+  }
+
+  .date {
+    font-family: 'Roboto Mono', monospace;
+  }
+
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html, body {
+  font-family: 'Roboto', sans-serif;
+  @apply label;
+}

@@ -1,0 +1,7 @@
+.nav-button {
+    @apply px-4 py-1 rounded-full text-sm font-medium text-gray-50 hover:bg-gray-800 focus:outline outline-2 outline-blue-800 outline-offset-2;
+
+    &.nav-button--selected {
+        @apply bg-blue-500 hover:bg-blue-500;
+    }
+}

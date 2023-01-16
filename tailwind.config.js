@@ -5,10 +5,20 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        gray: {
+          1000: '#0a0e17'
+        }
+      },
+      height: {
+        90: '22rem'
+      },
       borderRadius: {
         '4xl': '2.5rem'
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/line-clamp')
+  ],
 }

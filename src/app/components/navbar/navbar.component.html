@@ -1,1 +1,14 @@
-<p>navbar works!</p>
+<nav class="h-14 flex items-center px-8 gap-2">
+
+    <!-- Logo -->
+    <img src="/assets/logo-landscape-dark-theme.svg" class="h-10 pointer-events-none select-none" tabindex="-1">
+
+    <!-- Spacer -->
+    <div class="grow"></div>
+
+    <!-- Links -->
+
+    <a class="nav-button" routerLinkActive="nav-button--selected" [routerLinkActiveOptions]="{ exact: true }" routerLink="">Blog</a>
+    <a class="nav-button" routerLinkActive="nav-button--selected" routerLink="changelog">Changelog</a>
+    <a class="nav-button" routerLinkActive="nav-button--selected" routerLink="guides">Guides</a>
+</nav>
