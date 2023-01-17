@@ -61,12 +61,11 @@ export class BlogService {
   }
 
   getPosts(page: number = 0): Promise<BlogPostWithAuthor[]> {
-    console.log('Fetching response');
     return firstValueFrom(this.httpClient.get<BlogPostWithAuthor[]>(this.baseURL + 'api/blog-posts'))
   }
 
   getPost(post_id: string): Promise<BlogPostWithAuthor> {
-    return firstValueFrom(this.httpClient.get<BlogPostWithAuthor>('/api/blog-posts/' + post_id));
+    return firstValueFrom(this.httpClient.get<BlogPostWithAuthor>(this.baseURL + 'api/blog-posts/' + post_id));
   }
 
   markdownToHtml(markdown: string) {

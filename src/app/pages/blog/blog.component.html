@@ -1,35 +1,40 @@
-<div class="p-8">
+<ng-container *ngIf="blog_posts; else showLoadingBlogPosts">
+    <div class="p-8">
 
-    <!-- Featured post -->
-    <ng-container *ngIf="blog_posts && blog_posts.length && blog_posts[0] as post">
-        <a [routerLink]="post.public_id">
-            <div id="featured-blog-post" class="overflow-hidden rounded-3xl lg:rounded-4xl mb-8 lg:mb-24 relative group"
-                style="max-height:calc(100vh - 7.5rem)">
+        <!-- Featured post -->
+        <ng-container *ngIf="blog_posts && blog_posts.length && blog_posts[0] as post">
+            <a [routerLink]="post.public_id">
+                <div id="featured-blog-post"
+                    class="overflow-hidden rounded-3xl lg:rounded-4xl mb-8 lg:mb-24 relative group"
+                    style="max-height:calc(100vh - 7.5rem)">
 
-                <img [src]="post.image" class="w-full transition-transform group-hover:scale-105">
-                <div class="absolute top-0 left-0 h-full w-full bg-gradient-to-t from-black/90 via-black/60"></div>
-                <div class="absolute bottom-0 left-0 w-full lg:pb-24 pl-4 lg:pl-8">
-                    <div class="text-xs uppercase font-semibold lg:text-lg secondary-label">Featured</div>
-                    <div class="text-xl lg:text-6xl font-medium mb-2 lg:mb-4">{{ post.title }}</div>
-                    <div class="text-sm lg:text-xl mb-3 lg:mb-6">{{ post.description }}</div>
-                    <div class="items-center gap-2 hidden lg:flex">
-                        <img [src]="post.author.image" class="h-12 w-12 rounded-full">
-                        <div>
-                            <div class="font-medium not-italic label">{{ post.author.name }}</div>
-                            <div class="font-light secondary-label leading-4">{{ post.author.title }}</div>
+                    <img [src]="post.image" class="w-full transition-transform group-hover:scale-105">
+                    <div class="absolute top-0 left-0 h-full w-full bg-gradient-to-t from-black/90 via-black/60"></div>
+                    <div class="absolute bottom-0 left-0 w-full lg:pb-24 pl-4 lg:pl-8">
+                        <div class="text-xs uppercase font-semibold lg:text-lg secondary-label">Featured</div>
+                        <div class="text-xl lg:text-6xl font-medium mb-2 lg:mb-4">{{ post.title }}</div>
+                        <div class="text-sm lg:text-xl mb-3 lg:mb-6">{{ post.description }}</div>
+                        <div class="items-center gap-2 hidden lg:flex">
+                            <img [src]="post.author.image" class="h-12 w-12 rounded-full">
+                            <div>
+                                <div class="font-medium not-italic label">{{ post.author.name }}</div>
+                                <div class="font-light secondary-label leading-4">{{ post.author.title }}</div>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </a>
+        </ng-container>
+
+        <!-- Recent posts -->
+        <div id="recent-blog-posts">
+            <div class="text-2xl text-gray-50 mb-8">Recent blog posts</div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+                <app-blog-post-card *ngFor="let post of blog_posts" [post]="post"></app-blog-post-card>
             </div>
-        </a>
-    </ng-container>
-
-    <!-- Recent posts -->
-    <div id="recent-blog-posts">
-        <div class="text-2xl text-gray-50 mb-8">Recent blog posts</div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
-            <app-blog-post-card *ngFor="let post of blog_posts" [post]="post"></app-blog-post-card>
         </div>
     </div>
-</div>
+</ng-container>
+
+<ng-template #showLoadingBlogPosts>Loading...</ng-template>

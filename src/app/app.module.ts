@@ -32,7 +32,7 @@ import { UniversalInterceptorService } from './interceptors/universal.intercepto
     AppRoutingModule,
     BrowserAnimationsModule,
     TransferHttpCacheModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [UniversalInterceptorService],
   bootstrap: [AppComponent]

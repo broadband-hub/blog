@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BlogPostWithAuthor, BlogService } from 'src/app/services/blog.service';
+import { SeoService } from 'src/app/services/seo.service';
 
 @Component({
   selector: 'app-blog-post',
@@ -14,10 +15,8 @@ export class BlogPostComponent implements OnInit {
   post?: BlogPostWithAuthor | null;
   error = false;
 
-  article_loaded = false;
-
   constructor(
-    //private seoService: SeoService,
+    private seoService: SeoService,
     public blogService: BlogService,
     private activatedRoute: ActivatedRoute) { }
 
@@ -29,15 +28,11 @@ export class BlogPostComponent implements OnInit {
       .then(post => {
         this.post = post;
         if (post) {
-          /*this.seoService.updateMetadata({
+          this.seoService.updateMetadata({
             title: post.title,
             description: post.description,
-            image: `https://vbwgwexedzhcxpxxnhey.supabase.co/storage/v1/object/public/blog-post-thumbnails/${post.idd}.png`
-          });*/
-
-          setTimeout(() => {
-            this.article_loaded = true;
-          }, 300)
+            image: `https://vbwgwexedzhcxpxxnhey.supabase.co/storage/v1/object/public/blog-post-thumbnails/${post.public_id}.png`
+          });
         }
       })
       .catch(() => {
@@ -49,15 +44,11 @@ export class BlogPostComponent implements OnInit {
   }
 
   async ngOnInit() {
-
-    this.post = await this.blogService.getPost('my-first-post');
-    this.loading = false;
-
     this.activatedRoute.params.subscribe(params => {
       const post_id = params['public_id'];
       if (post_id !== this.public_id) {
         this.public_id = params['public_id'];
-        //this.loadPost();
+        this.loadPost();
       }
     })
   }
