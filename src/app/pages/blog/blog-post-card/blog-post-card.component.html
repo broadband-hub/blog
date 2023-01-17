@@ -1,7 +1,8 @@
-<a [routerLink]="post.id">
+<a [routerLink]="post.public_id">
     <div class="blog-post-card">
-        <img class="blog-post-card-image"
-            src="https://assets-global.website-files.com/5f2a93fe880654a977c51043/63b587b4b1f3a80f91f0dbed_image11.png">
+        <div class="blog-post-card-image-container">
+            <img class="blog-post-card-image" [src]="post.image">
+        </div>
         <div class="blog-post-card-content">
             <div class="blog-post-card-time">
                 <div class="date secondary-label">{{ post.published_at |

@@ -1,8 +1,18 @@
 .blog-post-card {
-    @apply  bg-gray-900 w-full h-96 rounded-3xl overflow-hidden hover:bg-gray-800 transition-all;
+    @apply  bg-gray-900 w-full h-96 rounded-3xl overflow-hidden hover:bg-blue-500/10 transition-all;
+
+    &:hover {
+        .blog-post-card-image-container .blog-post-card-image {
+            @apply scale-105;
+        }
+    }
+
+    .blog-post-card-image-container {
+        @apply overflow-hidden rounded-3xl;
+    }
 
     .blog-post-card-image {
-        @apply h-48 w-full rounded-3xl object-cover;
+        @apply h-48 w-full object-cover transition-transform;
     }
 
     .blog-post-card-content {

@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: '', component: BlogComponent },
   { path: 'changelog', component: ChangelogComponent },
   { path: 'guides', component: GuidesComponent },
-  { path: ':blog_post_id', component: BlogPostComponent },
+  { path: ':public_id', component: BlogPostComponent },
 ];
 
 @NgModule({
